@@ -3,15 +3,17 @@ import Helper.DBServerConnector;
 import java.sql.*;
 
 public class Main {
+    //jdbc:sqlite:sample.db
     public static void main(String[] args) {
-        Connection conn = null;
-        try {
-            Class.forName("org.sqlite.JDBC");
-            conn = DriverManager.getConnection("jdbc:sqlite:sample.db");
-            System.out.println("Veritabanı oluşturuldu!");
-        } catch (Exception e) {
-            System.err.println(e.getClass().getName() + ": " + e.getMessage());
-            System.exit(0);
+        try (Connection connection = DriverManager.getConnection("jdbc:sqlite:sample.db")) {
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery("SELECT title FROM books");
+            while (resultSet.next()) {
+                String title = resultSet.getString("title");
+                System.out.println(title);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
     }
 }
