@@ -1,21 +1,17 @@
 import Helper.DBServerConnector;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 
 public class Main {
     public static void main(String[] args) {
+        Connection conn = null;
         try {
-            String query = "SELECT * FROM public.books";
-            Statement st = DBServerConnector.getInstance().createStatement();
-            ResultSet rs = st.executeQuery(query);
-            while (rs.next()){
-                System.out.println("Name : " + rs.getString("bookname"));
-            }
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-            
+            Class.forName("org.sqlite.JDBC");
+            conn = DriverManager.getConnection("jdbc:sqlite:sample.db");
+            System.out.println("Veritabanı oluşturuldu!");
+        } catch (Exception e) {
+            System.err.println(e.getClass().getName() + ": " + e.getMessage());
+            System.exit(0);
         }
     }
 }
