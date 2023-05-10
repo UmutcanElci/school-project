@@ -5,6 +5,7 @@ import java.sql.*;
 public class Main {
     //jdbc:sqlite:sample.db
     public static void main(String[] args) {
+<<<<<<< Updated upstream
         try (Connection connection = DriverManager.getConnection("jdbc:sqlite:sample.db")) {
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery("SELECT title FROM books");
@@ -15,5 +16,8 @@ public class Main {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+=======
+        String query = "SELECT * FROM public.books";
+>>>>>>> Stashed changes
     }
 }
