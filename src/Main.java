@@ -1,5 +1,3 @@
-import Helper.DBServerConnector;
-
 import java.sql.*;
 
 public class Main {
