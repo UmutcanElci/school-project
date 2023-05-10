@@ -1,17 +1,10 @@
-
-import View.Library;
-
 import Helper.DBServerConnector;
 
 import java.sql.*;
 
-
 public class Main {
     //jdbc:sqlite:sample.db
     public static void main(String[] args) {
-
-        Library L1 = new Library();
-        L1.setVisible(true);
 
         try (Connection connection = DriverManager.getConnection("jdbc:sqlite:sample.db")) {
             Statement statement = connection.createStatement();
@@ -23,6 +16,8 @@ public class Main {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
         String query = "SELECT * FROM public.books";
+
     }
 }
