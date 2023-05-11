@@ -3,7 +3,9 @@ package Model.Manager;
 import Helper.Config;
 import Helper.DbConnection;
 import Model.Books;
+import org.sqlite.core.DB;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -36,8 +38,23 @@ public class BookDao {
     }
 
     public static boolean add(Books books){
+        try {
+            PreparedStatement pr = DbConnection.getInstance().prepareStatement(Config.SQL_INSERT);
+            pr.setString(1,books.getBookTitle());
+            pr.setString(2,books.getBookAuthor());
+            pr.setInt(3,books.getBookPageCount());
+            pr.setInt(4,books.getBookVolume());
+            int response = pr.executeUpdate();
 
-        return false;
+            if (response == -1){
+                return false;
+            }
+
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+
+        return true;
     }
 
     public static boolean update(Books books){
@@ -46,7 +63,12 @@ public class BookDao {
     }
 
     public static boolean delete(int id){
-
-        return false;
+        try {
+            PreparedStatement pr = DbConnection.getInstance().prepareStatement(Config.SQL_DELETE);
+            pr.setInt(1,id);
+            return pr.executeUpdate() != -1;
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 }
