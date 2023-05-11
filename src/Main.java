@@ -14,7 +14,7 @@ public class Main {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
+     
         String query = "SELECT * FROM public.books";
 
     }
