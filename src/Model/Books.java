@@ -57,4 +57,14 @@ public class Books {
     public void setBookVolume(int bookVolume) {
         this.bookVolume = bookVolume;
     }
+    @Override
+    public String toString() {
+        return "\nBook Details: " +
+                "ID=" + id +
+                ", Title='" + bookTitle + '\'' +
+                ", Author='" + bookAuthor + '\'' +
+                ", Page Count=" + bookPageCount +
+                ", Volume=" + bookVolume;
+    }
+
 }
