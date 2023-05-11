@@ -8,10 +8,8 @@ public class DBServerConnector {
     private Connection connection = null;
 
     public Connection connectionToDB(){
-
         try {
-            this.connection = DriverManager.getConnection(Config.DB_URL,Config.DB_USERNAME,Config.DB_PASSWORD);
-            System.out.println("Done");
+            this.connection = DriverManager.getConnection("jdbc:sqlite:sample.db");
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
