@@ -57,9 +57,19 @@ public class BookDao {
         return true;
     }
 
-    public static boolean update(Books books){
+    public static boolean update(Books books,int id){
 
-        return false;
+        try {
+            PreparedStatement pr = DbConnection.getInstance().prepareStatement(Config.SQL_UPDATE);
+            pr.setString(1,books.getBookTitle());
+            pr.setString(2,books.getBookAuthor());
+            pr.setInt(3,books.getBookPageCount());
+            pr.setInt(4,books.getBookVolume());
+            pr.setInt(5,books.getId());
+            return pr.executeUpdate() != -1;
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public static boolean delete(int id){
