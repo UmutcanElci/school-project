@@ -10,4 +10,6 @@ public class Config {
     public static final String SQL_INSERT = "INSERT INTO books (title, author, page_count, volume) VALUES (?,?,?,?)";
     public static final String SQL_DELETE = "DELETE FROM books WHERE id = ?";
     public static final String SQL_UPDATE = "UPDATE books SET title=?, author=?, page_count=?, volume=? WHERE id = ?";
+
+
 }
