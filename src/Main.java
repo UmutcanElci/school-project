@@ -6,7 +6,7 @@ public class Main {
         JFrame frame = new JFrame("Table Test");
         frame.add(new TableTest().panel1);
         frame.pack();
-        frame.setSize(800, 250);
+        frame.setSize(750, 400);
         frame.setVisible(true);
 
         String query = "SELECT * FROM public.books";

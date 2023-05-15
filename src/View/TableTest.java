@@ -1,11 +1,11 @@
 package View;
 
-import Helper.Config;
 import Helper.DbConnection;
+import Model.Books;
+import Model.Manager.BookDao;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.*;
@@ -24,38 +24,91 @@ public class TableTest {
     private JLabel pCountLabel;
     private JLabel volumeLabel;
     private JButton addDataButton;
-    private JTextField idTextField;
+    private JPanel deleteBookPanel;
     private JLabel idLabel;
+    private JButton deleteBookButton;
+    private JTextField idTextField;
+    private JButton updateBookButton;
 
     public TableTest() {
         addDataButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
-                    PreparedStatement pr = DbConnection.getInstance().prepareStatement(Config.SQL_UPDATE);
-                    pr.setString(1, titleTextField.getText());
-                    pr.setString(2, authorTextField.getText());
-                    pr.setInt(3, Integer.parseInt(pCountTextField.getText()));
-                    pr.setInt(4, Integer.parseInt(volumeTextField.getText()));
-                    pr.setInt(5, Integer.parseInt(idTextField.getText()));
-                    pr.executeUpdate();
-                    DefaultTableModel model = (DefaultTableModel) table1.getModel();
-                    model.setRowCount(0);
-
-                    Statement statement = DbConnection.getInstance().createStatement();
-                    ResultSet resultSet = statement.executeQuery("SELECT * FROM books");
-                    while (resultSet.next()) {
-                        Object[] row = {resultSet.getString("id"), resultSet.getString("title"),
-                                resultSet.getString("author"), resultSet.getInt("page_count"),
-                                resultSet.getInt("volume")};
-                        model.addRow(row);
-                    }
-
+                    Books book = new Books(titleTextField.getText(), authorTextField.getText(),
+                            Integer.parseInt(pCountTextField.getText()), Integer.parseInt(volumeTextField.getText()));
+                    BookDao.add(book);
+                    RefreshTableModel();
+                    JOptionPane.showMessageDialog(panel1, "Book Added to Database Successfully!");
+                    ClearTextBoxes();
                 } catch (Exception ex) {
-                    throw new RuntimeException(ex);
+                    ex.printStackTrace();
                 }
             }
         });
+
+        deleteBookButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    int delBookId = Integer.parseInt(idTextField.getText());
+                    for (Books book: BookDao.getAllBooks()) {
+                        if(book.getId() == delBookId)
+                            BookDao.delete(book.getId());
+                    }
+                    RefreshTableModel();
+                    JOptionPane.showMessageDialog(panel1, "Book Deleted from Database Successfully!");
+                    ClearTextBoxes();
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
+            }
+        });
+        updateBookButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    int updateBookId = Integer.parseInt(idTextField.getText());
+                    Books updatedBook = new Books(titleTextField.getText(), authorTextField.getText(),
+                            Integer.parseInt(pCountTextField.getText()), Integer.parseInt(volumeTextField.getText()));
+                    updatedBook.setId(updateBookId);
+                    for (Books book: BookDao.getAllBooks()) {
+                        if(book.getId() == updateBookId)
+                            BookDao.update(updatedBook,book.getId());
+                    }
+                    RefreshTableModel();
+                    JOptionPane.showMessageDialog(panel1, "Book Information Updated Successfully!");
+                    ClearTextBoxes();
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
+            }
+        });
+    }
+
+    private void ClearTextBoxes() {
+        titleTextField.setText("");
+        authorTextField.setText("");
+        pCountTextField.setText("");
+        volumeTextField.setText("");
+        idTextField.setText("");
+    }
+
+    private void RefreshTableModel() {
+        try {
+            DefaultTableModel model = (DefaultTableModel) table1.getModel();
+            model.setRowCount(0);
+            Statement statement = DbConnection.getInstance().createStatement();
+            ResultSet resultSet = statement.executeQuery("SELECT * FROM books");
+            while (resultSet.next()) {
+                Object[] row = {resultSet.getString("id"), resultSet.getString("title"),
+                        resultSet.getString("author"), resultSet.getInt("page_count"),
+                        resultSet.getInt("volume")};
+                model.addRow(row);
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
     }
 
     private void createUIComponents() {
