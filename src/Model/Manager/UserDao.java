@@ -18,10 +18,10 @@ public class UserDao {
 
             if (rs.next()) {
                 System.out.println("Login successful");
-                return true; // Kullanıcı adı ve şifre doğru
+                return true;
             } else {
                 System.out.println("Invalid login credentials");
-                return false; // Kullanıcı adı veya şifre yanlış
+                return false;
             }
         } catch (Exception e) {
             throw new RuntimeException(e);
