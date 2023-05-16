@@ -31,7 +31,7 @@ public class Library extends JFrame{
                 adminFrame.add(new AdminLogin().adminPanel);
                 adminFrame.pack();
                 adminFrame.setVisible(true);
-                setVisible(false);
+                dispose();
             }
         });
         userLogin.addActionListener(new ActionListener() {
@@ -42,7 +42,7 @@ public class Library extends JFrame{
                 userFrame.add(new UserLogin().userLoginPanel);
                 userFrame.pack();
                 userFrame.setVisible(true);
-                setVisible(false);
+                dispose();
             }
         });
         userRegistration.addActionListener(new ActionListener() {
@@ -53,7 +53,7 @@ public class Library extends JFrame{
                 userRegFrame.add(new UserRegistration().userRegistrationPanel);
                 userRegFrame.pack();
                 userRegFrame.setVisible(true);
-                setVisible(false);
+                dispose();
             }
         });
     }
