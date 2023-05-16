@@ -3,7 +3,7 @@ package View;
 import javax.swing.*;
 
 public class UserRegistration extends JFrame{
-    private JPanel userRegistrationPanel;
+    public JPanel userRegistrationPanel;
     private JTextField textField1;
     private JLabel userRegistrationName;
     private JLabel registrationPasswordField;
