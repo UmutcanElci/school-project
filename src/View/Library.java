@@ -40,6 +40,7 @@ public class Library extends JFrame{
         userRegistration.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+
                 UserRegistration userRegistration = new UserRegistration();
                 Config.CenterWindow(userRegistration);
                 dispose();
