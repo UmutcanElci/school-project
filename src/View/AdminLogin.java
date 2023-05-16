@@ -18,7 +18,7 @@ public class AdminLogin extends JFrame{
     public AdminLogin(){
         add(adminPanel);
         setSize(600,400);
-        setTitle("Library entrance");
+        setTitle("Library menu");
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         enterButton.addActionListener(new ActionListener() {
             @Override
