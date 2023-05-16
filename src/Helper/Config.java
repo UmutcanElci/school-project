@@ -1,5 +1,7 @@
 package Helper;
 
+import java.awt.*;
+
 public class Config {
     public static final String PROJECT_NAME = "Library Management System";
     public static final String ADMIN_USERNAME = "admin";
@@ -11,5 +13,10 @@ public class Config {
     public static final String SQL_DELETE = "DELETE FROM books WHERE id = ?";
     public static final String SQL_UPDATE = "UPDATE books SET title=?, author=?, page_count=?, volume=? WHERE id = ?";
 
-
+    public static void CenterWindow(Window frame) {
+        Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
+        int x = (int) ((dimension.getWidth() - frame.getWidth()) / 2);
+        int y = (int) ((dimension.getHeight() - frame.getHeight()) / 2);
+        frame.setLocation(x, y);
+    }
 }
