@@ -14,7 +14,7 @@ public class UserLogin extends JFrame {
     public UserLogin(){
         add(userLoginPanel);
         setSize(600,400);
-        setTitle("Library entrance");
+        setTitle("Library menu");
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     }
 
