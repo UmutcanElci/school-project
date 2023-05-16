@@ -15,12 +15,15 @@ public class UserLogin extends JFrame {
     private JPasswordField passwordField1;
     private JButton enterButton;
     private JLabel userPassword;
+    private JButton backButton;
 
     public UserLogin(){
         add(userLoginPanel);
         setSize(600,400);
         setTitle("Library menu");
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        setVisible(true);
+
         enterButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -32,6 +35,14 @@ public class UserLogin extends JFrame {
                 } else {
                     JOptionPane.showMessageDialog(null,"Username or password was incorrect.");
                 }
+            }
+        });
+        backButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Library library = new Library();
+                Config.CenterWindow(library);
+                dispose();
             }
         });
     }

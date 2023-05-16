@@ -21,6 +21,8 @@ public class AdminLogin extends JFrame{
         setSize(600,400);
         setTitle("Library menu");
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        setVisible(true);
+
         enterButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -35,7 +37,9 @@ public class AdminLogin extends JFrame{
         backButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                Library library = new Library();
+                Config.CenterWindow(library);
+                dispose();
             }
         });
     }
