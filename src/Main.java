@@ -1,23 +1,19 @@
-import Helper.DBServerConnector;
+import View.AdminLogin;
+import View.Library;
+import View.TableTest;
+import View.UserLogin;
 
-import java.sql.*;
+import javax.swing.*;
 
 public class Main {
-    //jdbc:sqlite:sample.db
     public static void main(String[] args) {
-
-        try (Connection connection = DriverManager.getConnection("jdbc:sqlite:sample.db")) {
-            Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery("SELECT title FROM books");
-            while (resultSet.next()) {
-                String title = resultSet.getString("title");
-                System.out.println(title);
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+        Library library = new Library();
+//        JFrame frame = new JFrame("Table Test");
+//        frame.add(new TableTest().panel1);
+//        frame.pack();
+//        frame.setSize(750, 400);
+//        frame.setVisible(true);
 
         String query = "SELECT * FROM public.books";
-
     }
 }
