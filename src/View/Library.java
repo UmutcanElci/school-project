@@ -7,9 +7,11 @@ public class Library extends JFrame{
     private JButton adminLogin;
     private JButton userLogin;
     private JButton userRegistration;
+    private JLabel librarypng;
+
     public Library(){
         add(libraryPanel);
-        setSize(400,400);
+        setSize(600,400);
         setTitle("Library Register");
 
     }
