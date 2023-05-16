@@ -16,8 +16,11 @@ public class Library extends JFrame{
     public Library(){
         add(libraryPanel);
         setSize(600,400);
-        setTitle("Library Register");
+
+        setTitle("Library menu");
+
         setVisible(true);
+
 
         adminLogin.addActionListener(new ActionListener() {
             @Override
