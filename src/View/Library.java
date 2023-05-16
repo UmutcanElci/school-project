@@ -1,5 +1,6 @@
 package View;
 
+import Helper.Config;
 import com.sun.tools.javac.Main;
 
 import javax.swing.*;
@@ -26,6 +27,7 @@ public class Library extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 JFrame adminFrame = new JFrame("Admin Login");
+                Config.CenterWindow(adminFrame);
                 adminFrame.add(new AdminLogin().adminPanel);
                 adminFrame.pack();
                 adminFrame.setVisible(true);
@@ -35,10 +37,22 @@ public class Library extends JFrame{
         userLogin.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                JFrame userFrame = new JFrame("Admin Login");
+                JFrame userFrame = new JFrame("User Login");
+                Config.CenterWindow(userFrame);
                 userFrame.add(new UserLogin().userLoginPanel);
                 userFrame.pack();
                 userFrame.setVisible(true);
+                setVisible(false);
+            }
+        });
+        userRegistration.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JFrame userRegFrame = new JFrame("User Registration");
+                Config.CenterWindow(userRegFrame);
+                userRegFrame.add(new UserRegistration().userRegistrationPanel);
+                userRegFrame.pack();
+                userRegFrame.setVisible(true);
                 setVisible(false);
             }
         });
