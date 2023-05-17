@@ -1,6 +1,7 @@
 package View;
 
 import Helper.Config;
+import Model.Manager.UserDao;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -27,10 +28,7 @@ public class UserLogin extends JFrame {
         enterButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String username = "test";
-                String password = "test";
-                if(userNameTextField1.getText().equals(username) &&
-                        Arrays.equals(passwordField1.getPassword(), password.toCharArray())) {
+                if(UserDao.loginFetch(userNameTextField1.getText(), new String(passwordField1.getPassword()))) {
                     JOptionPane.showMessageDialog(null, "Logged In.");
                 } else {
                     JOptionPane.showMessageDialog(null,"Username or password was incorrect.");
