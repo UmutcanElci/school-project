@@ -1,5 +1,7 @@
 package View;
 
+import Helper.Helper;
+
 import javax.swing.*;
 
 public class Library extends JFrame{
