@@ -6,6 +6,7 @@ import Model.Books;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
@@ -52,6 +53,7 @@ public class BookDao {
             throw new RuntimeException(e);
         }
 
+
         return true;
     }
 
@@ -78,5 +80,27 @@ public class BookDao {
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public static Books getFetch(String title){
+        Books obj = null;
+        String query = "SELECT * FROM books WHERE title = ?";
+        try {
+            PreparedStatement pr = DbConnection.getInstance().prepareStatement(query);
+            pr.setString(1,title);
+            ResultSet rs = pr.executeQuery();
+
+            if (rs.next()){
+                obj = new Books();
+                obj.setId(rs.getInt("id"));
+                obj.setBookTitle(rs.getString("title"));
+                obj.setBookAuthor(rs.getString("author"));
+                obj.setBookPageCount(rs.getInt("page_count"));
+                obj.setBookVolume(rs.getInt("volume"));
+            }
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+        return obj;
     }
 }

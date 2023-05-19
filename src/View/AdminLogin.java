@@ -18,12 +18,15 @@ public class AdminLogin extends JFrame{
     private JLabel adminLogin;
     private JLabel userPassword;
     public JPanel adminPanel;
+    private JButton backButton;
 
     public AdminLogin(){
         add(adminPanel);
         setSize(600,400);
         setTitle("Library menu");
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        setVisible(true);
+
         enterButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -33,6 +36,15 @@ public class AdminLogin extends JFrame{
                 } else {
                     JOptionPane.showMessageDialog(null,"Username or password was incorrect.");
                 }
+            }
+        });
+        backButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                Library library = new Library();
+                Config.CenterWindow(library);
+                dispose();
             }
         });
     }
