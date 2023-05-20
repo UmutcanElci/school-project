@@ -30,7 +30,7 @@ public class LibraryManagement extends JFrame {
         add(LibraryManagementPanel);
         setSize(1000,500);
         setLocation(Helper.screenCenter("x",getSize()),Helper.screenCenter("y",getSize()));
-        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setTitle("Library Management System");
         setVisible(true);
 

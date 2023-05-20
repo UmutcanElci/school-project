@@ -23,7 +23,7 @@ public class UserLogin extends JFrame {
         setSize(600,400);
         setResizable(false);
         setTitle("Library menu");
-        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
 
         enterButton.addActionListener(new ActionListener() {

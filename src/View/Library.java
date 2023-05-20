@@ -18,6 +18,7 @@ public class Library extends JFrame{
         add(libraryPanel);
         setSize(600,400);
         setResizable(false);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setTitle("Library menu");
         setVisible(true);
 
