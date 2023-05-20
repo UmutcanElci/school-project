@@ -89,7 +89,7 @@
             </constraints>
             <properties>
               <background color="-2895922"/>
-              <text value="User NAme"/>
+              <text value="User Name"/>
             </properties>
           </component>
           <component id="cd881" class="javax.swing.JLabel" binding="welcomeName">

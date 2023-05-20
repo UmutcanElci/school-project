@@ -17,6 +17,7 @@ public class Library extends JFrame{
     public Library(){
         add(libraryPanel);
         setSize(600,400);
+        setResizable(false);
         setTitle("Library menu");
         setVisible(true);
 
