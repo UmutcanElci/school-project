@@ -47,18 +47,9 @@
               <text value="Admin Name:"/>
             </properties>
           </component>
-          <component id="74054" class="javax.swing.JButton" binding="enterButton" default-binding="true">
-            <constraints>
-              <grid row="4" column="1" row-span="2" col-span="2" vsize-policy="0" hsize-policy="3" anchor="5" fill="0" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties>
-              <font size="18"/>
-              <text value="Enter"/>
-            </properties>
-          </component>
           <component id="963b9" class="javax.swing.JLabel" binding="userPassword">
             <constraints>
-              <grid row="3" column="0" row-span="2" col-span="1" vsize-policy="0" hsize-policy="0" anchor="9" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="9" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <font name="Times New Roman" size="18" style="1"/>
@@ -73,7 +64,7 @@
           </vspacer>
           <component id="f184d" class="javax.swing.JLabel" binding="adminLogin">
             <constraints>
-              <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="1" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <font name="Times New Roman" size="28" style="1"/>
@@ -83,7 +74,7 @@
           </component>
           <vspacer id="47be0">
             <constraints>
-              <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+              <grid row="0" column="1" row-span="1" col-span="2" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
             </constraints>
           </vspacer>
           <component id="cd22b" class="javax.swing.JLabel">
@@ -96,6 +87,24 @@
               <icon value="View/Paint/key.png"/>
               <text value=""/>
               <verticalAlignment value="0"/>
+            </properties>
+          </component>
+          <component id="5e405" class="javax.swing.JButton" binding="enterButton" default-binding="true">
+            <constraints>
+              <grid row="4" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="5" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font size="18"/>
+              <text value="Enter"/>
+            </properties>
+          </component>
+          <component id="823ff" class="javax.swing.JButton" binding="backButton">
+            <constraints>
+              <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="5" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font size="18"/>
+              <text value="Back"/>
             </properties>
           </component>
         </children>

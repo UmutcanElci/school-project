@@ -1,10 +1,7 @@
 package View;
 
-<<<<<<< HEAD
 import Helper.Helper;
-=======
 import Helper.Config;
->>>>>>> 07fa477d02b555e25a0e96715cb6d1ac3f9ea7f1
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -23,6 +20,7 @@ public class AdminLogin extends JFrame{
     public AdminLogin(){
         add(adminPanel);
         setSize(600,400);
+        setResizable(false);
         setTitle("Library menu");
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setVisible(true);

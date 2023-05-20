@@ -8,6 +8,7 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Objects;
+import java.util.SimpleTimeZone;
 
 public class UserRegistration extends JFrame {
     public JPanel userRegistrationPanel;
@@ -26,6 +27,7 @@ public class UserRegistration extends JFrame {
     public UserRegistration() {
         add(userRegistrationPanel);
         setSize(600, 400);
+        setResizable(false);
         setTitle("Library menu");
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setVisible(true);
@@ -42,16 +44,21 @@ public class UserRegistration extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 String userName = usernameTextField.getText();
                 String password = new String(passwordField.getPassword());
+                String confirmPassword = new String(confPasswordField.getPassword());
                 String email = emailTextField.getText();
-                if (!Objects.equals(userName, "") && !Objects.equals(password, "") && !Objects.equals(email, "")) {
-                    if (email.contains("@") && (email.contains(".com") || email.contains(".edu"))) {
-                        User newUser = new User(userName, password, email);
-                        if (UserDao.register(newUser))
-                            JOptionPane.showMessageDialog(null, "Registration Complete!");
-                        else
-                            JOptionPane.showMessageDialog(null, "Something Went Wrong!");
+                if (!Objects.equals(userName, "") && !Objects.equals(password, "") && !Objects.equals(email, "") && !Objects.equals(confirmPassword, "")) {
+                    if(password.equals(confirmPassword) ) {
+                        if (email.contains("@") && (email.contains(".com") || email.contains(".edu"))) {
+                            User newUser = new User(userName, password, email);
+                            if (UserDao.register(newUser))
+                                JOptionPane.showMessageDialog(null, "Registration Complete!");
+                            else
+                                JOptionPane.showMessageDialog(null, "Something Went Wrong!");
+                        } else {
+                            JOptionPane.showMessageDialog(null, "That is not an email address!");
+                        }
                     } else {
-                        JOptionPane.showMessageDialog(null, "That is not an email address!");
+                        JOptionPane.showMessageDialog(null, "Confirm password mismatch!");
                     }
                 } else {
                     JOptionPane.showMessageDialog(null, "Enter all credentials!");
