@@ -1,7 +1,6 @@
 package View;
 
 import Helper.Config;
-import com.sun.tools.javac.Main;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -19,7 +18,7 @@ public class Library extends JFrame{
         setSize(600,400);
         setResizable(false);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setTitle("Library menu");
+        setTitle("Library Menu");
         setVisible(true);
 
 
@@ -42,7 +41,6 @@ public class Library extends JFrame{
         userRegistration.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
                 UserRegistration userRegistration = new UserRegistration();
                 Config.CenterWindow(userRegistration);
                 dispose();

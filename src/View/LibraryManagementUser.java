@@ -1,7 +1,5 @@
 package View;
 
-import Helper.Helper;
-
 import javax.swing.*;
 
 public class LibraryManagementUser extends JFrame {
@@ -17,21 +15,10 @@ public class LibraryManagementUser extends JFrame {
     private JLabel welcomeName;
 
     public LibraryManagementUser() {
-
     add(LibraryManagementUserPanel);
     setSize(1000, 500);
-    setLocation(Helper.screenCenter("x", getSize()), Helper.screenCenter("y", getSize()));
-    setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-    setTitle("Library Management System");
+    setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    setTitle("Library Management System | User");
     setVisible(true);
    }
-
-    public static void main(String[] args){
-        Helper.setLayout();
-        LibraryManagementUser LMU = new LibraryManagementUser();
-
-
-    }
-
-
 }
