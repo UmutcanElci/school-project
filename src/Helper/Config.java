@@ -1,5 +1,6 @@
 package Helper;
 
+import javax.swing.*;
 import java.awt.*;
 
 public class Config {
@@ -18,5 +19,20 @@ public class Config {
         int x = (int) ((dimension.getWidth() - frame.getWidth()) / 2);
         int y = (int) ((dimension.getHeight() - frame.getHeight()) / 2);
         frame.setLocation(x, y);
+    }
+
+    public static void SetLayout(){
+        for(UIManager.LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()){
+            if("Nimbus".equals(info.getName())){
+                try {
+                    UIManager.setLookAndFeel(info.getClassName());
+                } catch (ClassNotFoundException | IllegalAccessException | UnsupportedLookAndFeelException |
+                         InstantiationException e) {
+                    throw new RuntimeException(e);
+                }
+                break;
+
+            }
+        }
     }
 }

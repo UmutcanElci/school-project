@@ -1,6 +1,5 @@
 package View;
 
-import Helper.Helper;
 import Helper.Config;
 
 import javax.swing.*;
@@ -21,7 +20,7 @@ public class AdminLogin extends JFrame{
         add(adminPanel);
         setSize(600,400);
         setResizable(false);
-        setTitle("Library menu");
+        setTitle("Admin Login");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
 
@@ -31,6 +30,9 @@ public class AdminLogin extends JFrame{
                 if(userTextField.getText().equals(Config.ADMIN_USERNAME) &&
                         Arrays.equals(userpasswordField.getPassword(), Config.ADMIN_PASSWORD.toCharArray())) {
                     JOptionPane.showMessageDialog(null, "Logged In.");
+                    LibraryManagement libraryManagement = new LibraryManagement();
+                    Config.CenterWindow(libraryManagement);
+                    dispose();
                 } else {
                     JOptionPane.showMessageDialog(null,"Username or password was incorrect.");
                 }
