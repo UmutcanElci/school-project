@@ -8,7 +8,6 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Objects;
-import java.util.SimpleTimeZone;
 
 public class UserRegistration extends JFrame {
     public JPanel userRegistrationPanel;
@@ -28,7 +27,7 @@ public class UserRegistration extends JFrame {
         add(userRegistrationPanel);
         setSize(600, 400);
         setResizable(false);
-        setTitle("Library menu");
+        setTitle("User Registration");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
         backButton.addActionListener(new ActionListener() {
@@ -52,18 +51,28 @@ public class UserRegistration extends JFrame {
                             User newUser = new User(userName, password, email);
                             if (UserDao.register(newUser))
                                 JOptionPane.showMessageDialog(null, "Registration Complete!");
-                            else
+                            else {
                                 JOptionPane.showMessageDialog(null, "Something Went Wrong!");
+                                ClearPasswordFields();
+                            }
                         } else {
                             JOptionPane.showMessageDialog(null, "That is not an email address!");
+                            ClearPasswordFields();
                         }
                     } else {
                         JOptionPane.showMessageDialog(null, "Confirm password mismatch!");
+                        ClearPasswordFields();
                     }
                 } else {
                     JOptionPane.showMessageDialog(null, "Enter all credentials!");
+                    ClearPasswordFields();
                 }
             }
         });
+    }
+
+    void ClearPasswordFields() {
+        passwordField.setText("");
+        confPasswordField.setText("");
     }
 }
