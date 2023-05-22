@@ -1,7 +1,10 @@
 package Helper;
 
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 import java.awt.*;
+import java.sql.ResultSet;
+import java.sql.Statement;
 
 public class Config {
     public static final String PROJECT_NAME = "Library Management System";
@@ -13,6 +16,7 @@ public class Config {
     public static final String SQL_INSERT = "INSERT INTO books (title, author, page_count, volume) VALUES (?,?,?,?)";
     public static final String SQL_DELETE = "DELETE FROM books WHERE id = ?";
     public static final String SQL_UPDATE = "UPDATE books SET title=?, author=?, page_count=?, volume=? WHERE id = ?";
+    public static final String header[] = {"ID", "Title", "Author", "Page Count", "Volume"};
 
     public static void CenterWindow(Window frame) {
         Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
@@ -33,6 +37,23 @@ public class Config {
                 break;
 
             }
+        }
+    }
+
+    public static void RefreshTableModel(JTable table) {
+        try {
+            DefaultTableModel model = (DefaultTableModel) table.getModel();
+            model.setRowCount(0);
+            Statement statement = DbConnection.getInstance().createStatement();
+            ResultSet resultSet = statement.executeQuery("SELECT * FROM books");
+            while (resultSet.next()) {
+                Object[] row = {resultSet.getString("id"), resultSet.getString("title"),
+                        resultSet.getString("author"), resultSet.getInt("page_count"),
+                        resultSet.getInt("volume")};
+                model.addRow(row);
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
         }
     }
 }

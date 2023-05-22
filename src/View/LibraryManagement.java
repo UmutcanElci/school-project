@@ -2,7 +2,6 @@
 package View;
 
 import Helper.Config;
-import Helper.DbConnection;
 import Model.Books;
 import Model.Manager.BookDao;
 
@@ -34,7 +33,7 @@ public class LibraryManagement extends JFrame {
     private JTextField volumeTextField;
     private JTextField idTextField;
     private JScrollPane scrollPane;
-    String header[] = {"ID", "Title", "Author", "Page Count", "Volume"};
+
 
 
     public LibraryManagement(){
@@ -51,7 +50,7 @@ public class LibraryManagement extends JFrame {
                     Books book = new Books(bookNametextField.getText(), authorTextField1.getText(),
                             Integer.parseInt(pagesTextField1.getText()), Integer.parseInt(volumeTextField.getText()));
                     BookDao.add(book);
-                    RefreshTableModel();
+                    Config.RefreshTableModel(adminJtable);
                     JOptionPane.showMessageDialog(null, "Book Added to Database Successfully!");
                     ClearTextBoxes();
                 } catch (Exception ex) {
@@ -70,7 +69,7 @@ public class LibraryManagement extends JFrame {
                         if(book.getId() == delBookId)
                             BookDao.delete(book.getId());
                     }
-                    RefreshTableModel();
+                    Config.RefreshTableModel(adminJtable);
                     JOptionPane.showMessageDialog(null, "Book Deleted from Database Successfully!");
                     ClearTextBoxes();
                 } catch (Exception ex) {
@@ -91,7 +90,7 @@ public class LibraryManagement extends JFrame {
                         if(book.getId() == updateBookId)
                             BookDao.update(updatedBook,book.getId());
                     }
-                    RefreshTableModel();
+                    Config.RefreshTableModel(adminJtable);
                     JOptionPane.showMessageDialog(null, "Book Information Updated Successfully!");
                     ClearTextBoxes();
                 } catch (Exception ex) {
@@ -132,22 +131,6 @@ public class LibraryManagement extends JFrame {
             }
         });
     }
-    private void RefreshTableModel() {
-        try {
-            DefaultTableModel model = (DefaultTableModel) adminJtable.getModel();
-            model.setRowCount(0);
-            Statement statement = DbConnection.getInstance().createStatement();
-            ResultSet resultSet = statement.executeQuery("SELECT * FROM books");
-            while (resultSet.next()) {
-                Object[] row = {resultSet.getString("id"), resultSet.getString("title"),
-                        resultSet.getString("author"), resultSet.getInt("page_count"),
-                        resultSet.getInt("volume")};
-                model.addRow(row);
-            }
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
-    }
     private void ClearTextBoxes() {
         bookNametextField.setText("");
         authorTextField1.setText("");
@@ -158,7 +141,7 @@ public class LibraryManagement extends JFrame {
     private void createUIComponents() {
         // TODO: place custom component creation code here
         DefaultTableModel model = new DefaultTableModel(0, 15);
-        model.setColumnIdentifiers(header);
+        model.setColumnIdentifiers(Config.header);
         adminJtable = new JTable(model);
         try (Connection connection = DriverManager.getConnection("jdbc:sqlite:sample.db")) {
             Statement statement = connection.createStatement();
