@@ -38,9 +38,10 @@ public class LibraryManagement extends JFrame {
 
     public LibraryManagement(){
         add(LibraryManagementPanel);
-        setSize(1000,550);
+        setSize(1000,590);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setTitle("Library Management System | Admin");
+        setResizable(false);
         setVisible(true);
 
         addBookButton.addActionListener(new ActionListener() {

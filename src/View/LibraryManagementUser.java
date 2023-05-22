@@ -25,9 +25,10 @@ public class LibraryManagementUser extends JFrame {
 
     public LibraryManagementUser() {
     add(LibraryManagementUserPanel);
-    setSize(1000, 500);
+    setSize(1000, 590);
     setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     setTitle("Library Management System | User");
+    setResizable(false);
     setVisible(true);
 
     userNameLabel.setText(UserLogin.userSessionName);
