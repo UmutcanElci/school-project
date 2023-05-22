@@ -17,6 +17,8 @@ public class UserLogin extends JFrame {
     private JLabel userPassword;
     private JButton backButton;
 
+    public static String userSessionName;
+
     public UserLogin(){
         add(userLoginPanel);
         setSize(600,400);
@@ -30,6 +32,7 @@ public class UserLogin extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 if(UserDao.loginFetch(userNameTextField1.getText(), new String(passwordField1.getPassword()))) {
                     JOptionPane.showMessageDialog(null, "Logged In.");
+                    userSessionName = userNameTextField1.getText();
                     LibraryManagementUser libraryManagementUser = new LibraryManagementUser();
                     Config.CenterWindow(libraryManagementUser);
                     dispose();
