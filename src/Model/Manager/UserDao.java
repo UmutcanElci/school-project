@@ -5,7 +5,6 @@ import Model.User;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 
 public class UserDao {
     public static boolean loginFetch(String name,String password){
