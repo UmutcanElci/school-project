@@ -33,6 +33,7 @@ public class BookDao {
             throw new RuntimeException(e);
         }
         return arrayList;
+
     }
 
     public static boolean add(Books books){
@@ -47,7 +48,7 @@ public class BookDao {
             if (response == -1){
                 return false;
             }
-
+            pr.close();
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
@@ -66,9 +67,11 @@ public class BookDao {
             pr.setInt(4,books.getBookVolume());
             pr.setInt(5,books.getId());
             return pr.executeUpdate() != -1;
+
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
+
     }
 
     public static boolean delete(int id){
@@ -97,6 +100,8 @@ public class BookDao {
                 obj.setBookPageCount(rs.getInt("page_count"));
                 obj.setBookVolume(rs.getInt("volume"));
             }
+            pr.close();
+            rs.close();
         } catch (Exception e) {
             throw new RuntimeException(e);
         }

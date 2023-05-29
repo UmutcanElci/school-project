@@ -22,6 +22,7 @@ public class UserDao {
                 System.out.println("Invalid login credentials");
                 return false;
             }
+
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
@@ -40,6 +41,7 @@ public class UserDao {
             if (response == -1){
                 return false;
             }
+            pr.close();
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
