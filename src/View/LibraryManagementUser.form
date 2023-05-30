@@ -3,7 +3,7 @@
   <grid id="27dc6" binding="LibraryManagementUserPanel" layout-manager="GridLayoutManager" row-count="2" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="20" left="10" bottom="10" right="10"/>
     <constraints>
-      <xy x="20" y="20" width="601" height="400"/>
+      <xy x="20" y="20" width="633" height="400"/>
     </constraints>
     <properties>
       <background color="-8421744"/>
@@ -16,7 +16,11 @@
             <preferred-size width="200" height="200"/>
           </grid>
         </constraints>
-        <properties/>
+        <properties>
+          <background color="-4473925"/>
+          <font name="Times New Roman" size="20" style="1"/>
+          <foreground color="-12236470"/>
+        </properties>
         <border type="none"/>
         <children>
           <grid id="911be" binding="tablePanel" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
@@ -33,12 +37,16 @@
                 <constraints>
                   <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
                 </constraints>
-                <properties/>
+                <properties>
+                  <background color="-4473925"/>
+                </properties>
                 <border type="none"/>
                 <children>
                   <component id="d8439" class="javax.swing.JTable" binding="userJtable" custom-create="true">
                     <constraints/>
-                    <properties/>
+                    <properties>
+                      <selectionBackground color="-4473925"/>
+                    </properties>
                   </component>
                 </children>
               </scrollpane>
@@ -61,8 +69,8 @@
               <grid row="0" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="5" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <background color="-2895922"/>
-              <font name="Times New Roman" size="18" style="1"/>
+              <background color="-4473925"/>
+              <font name="Tahoma" size="18" style="1"/>
               <text value="Back"/>
             </properties>
           </component>
@@ -72,14 +80,17 @@
                 <preferred-size width="150" height="-1"/>
               </grid>
             </constraints>
-            <properties/>
+            <properties>
+              <background color="-1"/>
+            </properties>
           </component>
           <component id="d0ea7" class="javax.swing.JButton" binding="searchButton" default-binding="true">
             <constraints>
               <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <font name="Times New Roman" size="18" style="1"/>
+              <background color="-4473925"/>
+              <font name="Tahoma" size="18" style="1"/>
               <text value="Search"/>
             </properties>
           </component>
@@ -89,6 +100,7 @@
             </constraints>
             <properties>
               <background color="-2895922"/>
+              <font name="Times New Roman" size="20" style="1"/>
               <foreground color="-1"/>
               <text value="User Name"/>
             </properties>
