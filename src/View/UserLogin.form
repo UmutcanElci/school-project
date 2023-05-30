@@ -3,7 +3,7 @@
   <grid id="27dc6" binding="userLoginPanel" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="80" left="80" bottom="80" right="80"/>
     <constraints>
-      <xy x="20" y="20" width="584" height="506"/>
+      <xy x="20" y="20" width="653" height="506"/>
     </constraints>
     <properties>
       <background color="-8421744"/>
@@ -27,7 +27,9 @@
                 <preferred-size width="150" height="-1"/>
               </grid>
             </constraints>
-            <properties/>
+            <properties>
+              <background color="-1"/>
+            </properties>
           </component>
           <component id="9f2bd" class="javax.swing.JPasswordField" binding="passwordField1" default-binding="true">
             <constraints>
@@ -35,15 +37,17 @@
                 <preferred-size width="150" height="-1"/>
               </grid>
             </constraints>
-            <properties/>
+            <properties>
+              <background color="-1"/>
+            </properties>
           </component>
           <component id="92cf" class="javax.swing.JLabel" binding="userName">
             <constraints>
               <grid row="2" column="0" row-span="2" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <font name="Times New Roman" size="18" style="1"/>
-              <foreground color="-1974342"/>
+              <font name="Tahoma" size="18" style="0"/>
+              <foreground color="-2895922"/>
               <text value="User Name:"/>
             </properties>
           </component>
@@ -52,8 +56,8 @@
               <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <font name="Times New Roman" size="18" style="1"/>
-              <foreground color="-1974342"/>
+              <font name="Tahoma" size="18" style="0"/>
+              <foreground color="-2895922"/>
               <text value="Password:"/>
             </properties>
           </component>
@@ -63,8 +67,8 @@
             </constraints>
             <properties>
               <background color="-10053957"/>
-              <font name="Times New Roman" size="30" style="1"/>
-              <foreground color="-1974342"/>
+              <font name="Tahoma" size="30" style="1"/>
+              <foreground color="-2895922"/>
               <text value="User Login"/>
             </properties>
           </component>
@@ -78,17 +82,13 @@
               <text value=""/>
             </properties>
           </component>
-          <vspacer id="5a7fe">
-            <constraints>
-              <grid row="5" column="1" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
-            </constraints>
-          </vspacer>
           <component id="6fafc" class="javax.swing.JButton" binding="enterButton">
             <constraints>
               <grid row="5" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="5" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <font size="18"/>
+              <background color="-4473925"/>
+              <font name="Tahoma" size="18" style="1"/>
               <text value="Enter"/>
             </properties>
           </component>
@@ -99,10 +99,11 @@
           </vspacer>
           <component id="794a0" class="javax.swing.JButton" binding="backButton">
             <constraints>
-              <grid row="5" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="5" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="5" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="9" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <font size="18"/>
+              <background color="-4473925"/>
+              <font name="Tahoma" size="18" style="1"/>
               <text value="Back"/>
             </properties>
           </component>
